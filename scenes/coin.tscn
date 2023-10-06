@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cccv7ecmrvfyd"]
+
+[ext_resource type="Script" path="res://assets/scripts/Coin Physics.gd" id="1_jr64x"]
+[ext_resource type="Script" path="res://assets/scripts/Coin Detector.gd" id="2_nq4ii"]
+[ext_resource type="Texture2D" uid="uid://pcjpdy1ep0xs" path="res://assets/sprites/Coin.png" id="2_waxdd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wx5gs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_peu2m"]
+
+[node name="Coin" type="CharacterBody2D" groups=["Coin"]]
+collision_mask = 16
+script = ExtResource("1_jr64x")
+metadata/_edit_group_ = true
+
+[node name="Coin Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_waxdd")
+
+[node name="Coin Hit Box" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wx5gs")
+
+[node name="Coin Detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_nq4ii")
+
+[node name="Coin Detector Box" type="CollisionShape2D" parent="Coin Detector"]
+shape = SubResource("CircleShape2D_peu2m")
+
+[connection signal="body_entered" from="Coin Detector" to="Coin Detector" method="_on_body_entered"]

@@ -1,0 +1,39 @@
+Dad
+Blue begger/business man that gives money when you hit him
+Coin explosions for when you hit beggers
+Add charaters
+
+Mom
+
+Autumn
+In harder levels add running beggers
+
+Cierra
+
+James
+Begger cannon
+
+Karissa
+Random angles
+
+Ririe
+
+Taylor
+
+Raice
+
+Todo
+add sound effects
+add deleting
+Add player names
+Add Ceiling
+Add/Make Music
+
+Todo James
+Add UI --done
+Add Cheat codes for Devs
+add randomness for coins
+fix bugs
+
+Buggs
+Map keeps going after game ends

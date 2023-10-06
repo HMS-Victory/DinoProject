@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2btlta6xvkms"]
+
+[ext_resource type="Texture2D" uid="uid://t25cstx2qp7k" path="res://assets/sprites/Base enemy.png" id="2_s0sla"]
+[ext_resource type="Script" path="res://assets/scripts/Begger Detection.gd" id="3_b1fwe"]
+[ext_resource type="Script" path="res://assets/scripts/Begger Physics.gd" id="3_mics7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s745v"]
+size = Vector2(13, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd8yk"]
+size = Vector2(19, 81)
+
+[node name="Begger" type="CharacterBody2D" groups=["Begger"]]
+position = Vector2(325, 187)
+collision_layer = 33
+collision_mask = 40
+script = ExtResource("3_mics7")
+
+[node name="Begger Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("2_s0sla")
+
+[node name="Begger Collision Box" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_s745v")
+
+[node name="Begger Detection" type="Area2D" parent="."]
+position = Vector2(-1, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_b1fwe")
+
+[node name="Begger Detection Box" type="CollisionShape2D" parent="Begger Detection"]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_rd8yk")
+
+[connection signal="body_entered" from="Begger Detection" to="Begger Detection" method="_on_body_entered"]
